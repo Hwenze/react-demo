@@ -11,7 +11,7 @@ class Counter extends React.Component {
             <div>
                 <h1>计数的数量：{value}</h1>
                 <button onClick={this.props.onAddClick}>数字+1</button>
-                <button onClick={this.props.onAddClick5}>数字+5</button>
+                <button onClick={this.props.onAddClick5}>数字+7</button>
             </div>
         )
     }

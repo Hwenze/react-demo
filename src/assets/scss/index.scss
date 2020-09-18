@@ -1,0 +1,58 @@
+html, body{
+    background-color: #333333;
+}
+
+#root{
+    width: 375px;
+    height: 667px;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow-y: scroll;
+    padding: 15px;
+    position: relative;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .search-box{
+        position: relative;
+
+        .search{
+            width: 100%;
+            height: 33px;
+            border: 1px solid #333333;
+            box-sizing: border-box;
+            padding: 0 6px;
+            border-radius: 5px;
+        }
+
+        .anticon-search{
+            width: 33px;
+            height: 27px;
+            font-size: 20px;
+            position: absolute;
+            padding-top: 6px;
+            right: 0;
+            color: skyblue;
+            cursor: pointer;
+        }
+    }
+
+    .tree{
+        margin-top: 30px;
+    }
+
+    .btn-box{
+        padding-top: 30px;
+
+        .btn{
+            background-color: skyblue;
+            border: none;
+            height: 44px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}
