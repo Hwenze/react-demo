@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Tree } from 'antd';
+import Tree from '../component/tree';
 import org from './org';
+import person from './person';
 import { SearchOutlined } from '@ant-design/icons';
 
-class Counter extends Component {
+class List extends Component {
     constructor(props) {
         super(props);
 
@@ -12,53 +13,30 @@ class Counter extends Component {
 
         }
     }
-    onSelect = (selectedKeys, info) => {
-        console.log('selected', selectedKeys, info);
-    };
-
-    onCheck = (checkedKeys, info) => {
-        console.log('onCheck', checkedKeys, info);
-    };
 
     render() {
-        const treeData = [
-            {
-                title: 'parent 1',
-                key: '0-0',
-                children: [
-                    {
-                        title: 'parent 1-0',
-                        key: '0-0-0',
-                    },
-                    {
-                        title: 'parent 1-1',
-                        key: '0-0-1',
-                    },
-                ],
-            },
-        ];
         console.log(this.props)
         console.log(org)
-        const value = this.props.value;
+        let arr = [];
+
+        org.data.forEach((item, index)=>{
+            person.data.forEach((it, idx)=>{
+                if(item.orgId === it.orgId){
+                    item.children = [];
+                    item.children.push(it)
+                }
+                console.log(item)
+            })
+            arr.push(item)
+        })
+        console.log(arr)
         return (
             <>
                 <div className="search-box">
                     <input className="search" placeholder="搜索"></input>
-                    <SearchOutlined width="30" />
+                    <SearchOutlined />
                 </div>
-                <Tree
-                    className="tree"
-                    checkable
-                    defaultExpandedKeys={['0-0-0', '0-0-1']}
-                    defaultSelectedKeys={['0-0-0', '0-0-1']}
-                    defaultCheckedKeys={['0-0-0', '0-0-1']}
-                    onSelect={this.onSelect}
-                    onCheck={this.onCheck}
-                    treeData={treeData}
-                />
-                <h1>计数的数量：{value}</h1>
-                <button onClick={this.props.onAddClick}>数字+1</button>
-                <button onClick={this.props.onAddClick5}>数字+6</button>
+                <Tree data={arr}/>
                 <div className="flex-bet btn-box">
                     <button className="btn" onClick={this.props.onAddClick5}>添加部门</button>
                     <button className="btn" onClick={this.props.onAddClick5}>添加员工</button>
@@ -88,6 +66,6 @@ function mapDispatchToProps(dispatch) {
 const App = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Counter)
+)(List)
 
 export default App

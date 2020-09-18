@@ -29,18 +29,61 @@ html, body{
 
         .anticon-search{
             width: 33px;
-            height: 27px;
+            height: 33px;
             font-size: 20px;
             position: absolute;
             padding-top: 6px;
             right: 0;
             color: skyblue;
-            cursor: pointer;
         }
     }
 
-    .tree{
+    .tree-box{
         margin-top: 30px;
+
+        .tree{
+            .parent{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                .name{
+                    margin-left: 10px;
+                }
+            }
+
+            .son{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                .name{
+                    margin-left: 35px;
+                }
+            }
+
+            .icon{
+                width: 15px;
+                height: 15px;
+                border: 1px solid skyblue;
+            }
+
+            .icon-act{
+                width: 15px;
+                height: 15px;
+                border: 1px solid skyblue;
+                background: skyblue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .anticon-check{
+                    font-size: 13px;
+                    color: #fff;
+                }
+            }
+        }
+        
     }
 
     .btn-box{
